@@ -1,7 +1,7 @@
 {
     "name": "gh-notify",
     "version": "1.0.0",
-    "description": "Library for displaying simple notifications on the site",
+    "description": "Library for displaying simple notifications on a GitHub-style website",
     "main": "build/gh-notify.min.js",
     "scripts": {
         "run": "gulp",
