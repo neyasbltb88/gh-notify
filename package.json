@@ -1,0 +1,33 @@
+{
+    "name": "gh-notify",
+    "version": "1.0.0",
+    "description": "Library for displaying simple notifications on the site",
+    "main": "build/gh-notify.min.js",
+    "scripts": {
+        "run": "gulp",
+        "build": "gulp build"
+    },
+    "keywords": [
+        "gh-notify",
+        "notify",
+        "notifications"
+    ],
+    "author": "neyasbltb88",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.1.6",
+        "@babel/preset-env": "^7.1.6",
+        "browser-sync": "^2.26.3",
+        "del": "^3.0.0",
+        "gulp": "^3.9.1",
+        "gulp-autoprefixer": "^6.0.0",
+        "gulp-babel": "^8.0.0",
+        "gulp-clean-css": "^3.10.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-notify": "^3.2.0",
+        "gulp-rename": "^1.4.0",
+        "gulp-sass": "^4.0.2",
+        "gulp-sourcemaps": "^2.6.4",
+        "gulp-uglify": "^3.0.1"
+    }
+}

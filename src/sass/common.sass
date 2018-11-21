@@ -1,0 +1,90 @@
+body 
+    margin: 0
+
+        
+[title="Hosted on free web hosting 000webhost.com. Host your own website for FREE."]
+    display: none
+        
+.test 
+    background-color: #dfdfdf
+    padding-top: 200px
+    height: 800px
+    margin: 0 auto
+    outline: 1px solid #000
+    overflow: hidden
+
+.buttons_block 
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+    .add_button 
+        margin: 10px
+        height: 25px
+
+.log_wrap 
+    position: relative
+    flex-grow: 1
+    flex-basis: 300px
+    font-family: monospace
+    &:before 
+        content: 'Log:'
+        position: absolute
+        left: 10px
+        top: -20px 
+    .log
+        max-width: calc(100vw - 42px)
+        border: 1px solid #333
+        background-color: #888
+        min-height: 17px
+        max-height: 102px
+        margin: 0 10px
+        display: flex
+        flex-direction: column
+        justify-content: flex-start
+        padding: 1px 2px
+        padding-left: 35px
+        list-style-type: none
+        overflow: auto
+        &::-webkit-scrollbar 
+            width: .55%
+            min-width: 8px
+            height: 8px
+            background-color: #888
+        &::-webkit-scrollbar-thumb 
+            background-color: #E6DB74
+        &::-webkit-scrollbar-track 
+            background-color: #888
+        li 
+            min-width: 450px
+            min-height: 15px
+            line-height: 15px
+            margin: 1px 0;
+            padding: 0 3px 0 10px
+            background-color: #bbb
+            display: flex
+            align-items: center
+            position: relative
+            &:before 
+                position: absolute
+                content: attr(data-log-line)
+                color: #66D9EF
+                right: 100%
+                font-size: 11px
+            &:after 
+                position: absolute
+                content: attr(data-log-way)
+                left: 0
+                top: -1px
+                height: 19px
+                width: 9px
+                background-color: #888
+            &:not([data-log-line]) 
+                margin-top: -1px
+                min-height: 16px
+                padding-bottom: 1px
+            &.way_to:after 
+                color: #8AE22E
+            &.way_from:after 
+                color: #FD971F
+        

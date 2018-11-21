@@ -1,0 +1,193 @@
+.flash 
+    background-color: #dbedff
+    border: 1px solid rgba(27, 31, 35, .15)
+    border-radius: 3px
+    color: #032f62
+    position: relative
+    padding-left: 16px
+    height: 50px
+    transition: height .25s ease
+    overflow-y: hidden
+    display: flex
+    &.h0 
+        height: 0 !important
+        border: none !important
+    &-close 
+        -moz-appearance: none
+        -webkit-appearance: none
+        appearance: none
+        background: none
+        border: 0
+        color: inherit
+        cursor: pointer
+        opacity: .6
+        padding: 16px
+        text-align: center
+        order: 1
+        &:hover 
+            opacity: 1
+        &:focus 
+            outline: none
+    &-warn 
+        background-color: #fffbdd
+        color: #735c0f
+    &-error,
+    &-warn 
+        border-color: rgba(27, 31, 35, .15)
+    &-error 
+        background-color: #ffdce0
+        color: #86181d
+    &-success 
+        background-color: #dcffe4
+        border-color: rgba(27, 31, 35, .15)
+        color: #165c26
+    &-full 
+        border-radius: 0
+        border-width: 1px 0
+    p:last-child 
+        margin-bottom: 0
+    .message 
+        order: 0
+        flex-grow: 1
+        align-self: center
+        height: inherit
+        display: flex
+        align-items: center
+        overflow: hidden
+
+
+// //////////////////////////
+
+.tooltipped 
+    position: relative
+    &:after 
+        -webkit-font-smoothing: subpixel-antialiased
+        background: #1b1f23
+        border-radius: 3px
+        color: #fff
+        content: attr(aria-label)
+        font: normal normal 11px/1.5 -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
+        letter-spacing: normal
+        padding: .5em .75em
+        text-align: center
+        text-decoration: none
+        text-shadow: none
+        text-transform: none
+        white-space: pre
+        word-wrap: break-word
+        z-index: 1000000
+    &:after,
+    &:before 
+        display: none
+        opacity: 0
+        pointer-events: none
+        position: absolute
+    &:before 
+        border: 6px solid transparent
+        color: #1b1f23
+        content: ""
+        height: 0
+        width: 0
+        z-index: 1000001
+
+@keyframes tooltip-appear 
+    0% 
+        opacity: 0
+    
+    to 
+        opacity: 1
+    
+.tooltipped:hover:after,
+.tooltipped:hover:before 
+    animation-delay: .4s
+    animation-duration: .1s
+    animation-fill-mode: forwards
+    animation-name: tooltip-appear
+    animation-timing-function: ease-in
+    display: inline-block
+    text-decoration: none
+
+.tooltipped-no-delay:hover:after,
+.tooltipped-no-delay:hover:before 
+    animation-delay: 0s
+
+.tooltipped-multiline:hover:after 
+    display: table-cell
+
+.tooltipped-s:after,
+.tooltipped-se:after,
+.tooltipped-sw:after 
+    margin-top: 6px
+    right: 50%
+    top: 100%
+
+.tooltipped-s:before,
+.tooltipped-se:before,
+.tooltipped-sw:before 
+    border-bottom-color: #1b1f23
+    bottom: -7px
+    margin-right: -6px
+    right: 50%
+    top: auto
+
+.tooltipped-se:after 
+    left: 50%
+    margin-left: -16px
+    right: auto
+
+.tooltipped-sw:after 
+    margin-right: -16px
+
+.tooltipped-n:after,
+.tooltipped-ne:after,
+.tooltipped-nw:after 
+    bottom: 100%
+    margin-bottom: 6px
+    right: 50%
+
+.tooltipped-n:before,
+.tooltipped-ne:before,
+.tooltipped-nw:before 
+    border-top-color: #1b1f23
+    bottom: auto
+    margin-right: -6px
+    right: 50%
+    top: -7px
+
+.tooltipped-ne:after 
+    left: 50%
+    margin-left: -16px
+    right: auto
+
+.tooltipped-nw:after 
+    margin-right: -16px
+
+.tooltipped-n:after,
+.tooltipped-s:after 
+    transform: translateX(50%)
+
+.tooltipped-w:after 
+    bottom: 50%
+    margin-right: 6px
+    right: 100%
+    transform: translateY(50%)
+
+.tooltipped-w:before 
+    border-left-color: #1b1f23
+    bottom: 50%
+    left: -7px
+    margin-top: -6px
+    top: 50%
+
+.tooltipped-e:after 
+    bottom: 50%
+    left: 100%
+    margin-left: 6px
+    transform: translateY(50%)
+
+.tooltipped-e:before 
+    border-right-color: #1b1f23
+    bottom: 50%
+    margin-top: -6px
+    right: -7px
+    top: 50%
