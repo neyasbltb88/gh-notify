@@ -1,0 +1,107 @@
+body 
+    margin: 0
+    background-color: #dfdfdf
+
+.log_wrap 
+    position: relative
+    flex-grow: 1
+    flex-basis: 300px
+    font-family: monospace
+    &:before 
+        content: 'Log:'
+        position: absolute
+        left: 10px
+        top: -20px 
+    .log
+        max-width: calc(100vw - 42px)
+        border: 1px solid #333
+        background-color: #888
+        min-height: 17px
+        max-height: 102px
+        margin: 0 10px
+        display: flex
+        flex-direction: column
+        justify-content: flex-start
+        padding: 1px 2px
+        padding-left: 35px
+        list-style-type: none
+        overflow: auto
+        &::-webkit-scrollbar 
+            width: .55%
+            min-width: 8px
+            height: 8px
+            background-color: #888
+        &::-webkit-scrollbar-thumb 
+            background-color: #E6DB74
+        &::-webkit-scrollbar-track 
+            background-color: #888
+        li 
+            min-width: 450px
+            min-height: 15px
+            line-height: 15px
+            margin: 1px 0;
+            padding: 0 3px 0 10px
+            background-color: #bbb
+            display: flex
+            align-items: center
+            position: relative
+            &:before 
+                position: absolute
+                content: attr(data-log-line)
+                color: #66D9EF
+                right: 100%
+                font-size: 11px
+            &:after 
+                position: absolute
+                content: attr(data-log-way)
+                left: 0
+                top: -1px
+                height: 19px
+                width: 9px
+                background-color: #888
+            &:not([data-log-line]) 
+                margin-top: -1px
+                min-height: 16px
+                padding-bottom: 1px
+            &.way_to:after 
+                color: #8AE22E
+            &.way_from:after 
+                color: #FD971F
+
+
+.demo_page_wrap
+    width: 100vw
+    height: 100vh
+    overflow: hidden
+    display: flex
+    justify-content: center
+    align-items: center
+    .demo_page
+        max-width: 800px
+        flex-basis: 800px
+        height: 60vh
+        border: 1px solid #000
+        border-radius: 5px
+        display: flex
+        flex-direction: column
+        justify-content: stretch
+        .row_1, .row_3
+            min-height: 25px
+            display: flex
+            align-items: center
+            justify-content: space-between
+        .row_2
+            flex-grow: 1
+            border: 1px solid #00f
+            overflow: auto
+            .row_2_inner
+              height: 1000px
+              border: 1px solid #f00
+        .row
+            // border: 1px solid #00f
+            label
+                padding: 3px 15px
+                cursor: pointer
+                
+
+

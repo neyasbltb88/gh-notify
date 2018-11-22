@@ -158,12 +158,36 @@ class GHNotify {
         this.new = options.new;
         // === Опции===
         this.container = null;
+        this.style_elem = null;
         this.parent_elem = null;
         this.lastID = 0;
         this.buffer = {};
 
 
         this.init();
+    }
+
+    destroy() {
+        this.parent_elem.removeChild(this.container);
+        document.body.removeChild(this.style_elem);
+
+        for (let prop in this) {
+            delete this[prop];
+        }
+
+        this.destroy = undefined;
+        this.parseParamsItem = undefined;
+        this.normalizeParamsItem = undefined;
+        this.push = undefined;
+        this.remove = undefined;
+        this.removeAll = undefined;
+        this.removeFromBuffer = undefined;
+        this.pauseTimers = undefined;
+        this.startTimers = undefined;
+        this.detectContainerPlace = undefined;
+        this.createContainer = undefined;
+        this.checkContainer = undefined;
+        this.init = undefined;
     }
 
     parseParamsItem() {
@@ -363,12 +387,12 @@ class GHNotify {
         this.parent_elem.appendChild(this.container);
 
         // И стили для него
-        let notify_style = document.createElement('style');
-        notify_style.className = `${selector}_style`;
+        this.style_elem = document.createElement('style');
+        this.style_elem.className = `${selector}_style`;
 
         let place = this.detectContainerPlace(this.place);
 
-        let notify_style_txt = `
+        let style_elem_txt = `
         .${selector} {
             position: ${this.position};
             z-index: 99;
@@ -377,8 +401,8 @@ class GHNotify {
             box-sizing: border-box;
             ${place};
         }`;
-        notify_style.textContent = notify_style_txt;
-        document.body.appendChild(notify_style);
+        this.style_elem.textContent = style_elem_txt;
+        document.body.appendChild(this.style_elem);
     }
 
     checkContainer(selector) {
