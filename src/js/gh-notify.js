@@ -257,17 +257,18 @@ class GHNotify {
         let place,
             position = this.position,
             offsetX = this.offsetX,
-            offsetY = this.offsetY;
+            offsetY = this.offsetY,
+            width = this.width;
 
         function placeLeft() {
             let place;
             // Если ширина 100%, вычитаем из нее отступ слева
-            if (this.width === '100%') {
-                place = `width: calc(${this.width} - ${this.offsetX});`;
+            if (width === '100%') {
+                place = `width: calc(${width} - ${offsetX});`;
             } else {
-                place = `width: ${this.width};`;
+                place = `width: ${width};`;
             }
-            place += `left: ${this.offsetX};`;
+            place += `left: ${offsetX};`;
 
             return place;
         }
@@ -275,13 +276,13 @@ class GHNotify {
         function placeCenter() {
             let place;
             // Если ширина 100%, вычитаем из нее отступ слева
-            if (this.width === '100%') {
-                place = `width: calc( ${this.width} - ${this.offsetX} );
-                left: ${this.offsetX};`;
+            if (width === '100%') {
+                place = `width: calc( ${width} - ${offsetX} );
+                left: ${offsetX};`;
                 // Если ширина задана вручную, то даем translateX для того, чтобы было по центру
             } else {
-                place = `width: ${this.width};
-                left: calc(${this.offsetX} + 50%);
+                place = `width: ${width};
+                left: calc(${offsetX} + 50%);
                 transform: translateX(-50%);`;
             }
 
@@ -291,11 +292,11 @@ class GHNotify {
         function placeRight() {
             let place;
             // Если ширина 100%, вычитаем из нее отступ справа
-            if (this.width === '100%') {
-                place = `width: calc( ${this.width} - ${this.offsetX} );`;
+            if (width === '100%') {
+                place = `width: calc( ${width} - ${offsetX} );`;
             } else {
-                place = `width: ${this.width};
-                left: calc(100% - (${this.width} + ${this.offsetX}));`;
+                place = `width: ${width};
+                left: calc(100% - (${width} + ${offsetX}));`;
             }
 
             return place;
@@ -320,31 +321,31 @@ class GHNotify {
         switch (place_name) {
             // Расположение - левый верхний угол
             case 'nw':
-                place = placeTop(placeLeft.call(this));
+                place = placeTop(placeLeft());
                 break;
                 // Расположение - сверху по центру
             case 'n':
-                place = placeTop(placeCenter.call(this));
+                place = placeTop(placeCenter());
                 break;
                 // Расположение справа вверху
             case 'ne':
-                place = placeTop(placeRight.call(this));
+                place = placeTop(placeRight());
                 break;
                 // Расположение справа внизу
             case 'se':
-                place = placeBottom(placeRight.call(this));
+                place = placeBottom(placeRight());
                 break;
                 // Расположение внизу по центру
             case 's':
-                place = placeBottom(placeCenter.call(this));
+                place = placeBottom(placeCenter());
                 break;
                 // Расположение слева внизу
             case 'sw':
-                place = placeBottom(placeLeft.call(this));
+                place = placeBottom(placeLeft());
                 break;
 
             default:
-                place = placeTop(placeLeft.call(this));
+                place = placeTop(placeLeft());
                 console.log('place_name: ', place_name);
 
                 break;
