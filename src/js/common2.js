@@ -1,8 +1,8 @@
 var one = new window.GHNotify({
+    place: 'ne',
+    width: '300px',
     // offsetY: '50px',
     // offsetX: '200px',
-    width: '300px',
-    place: 'ne',
     // container: '.notify_container_2',
     // position: 'relative',
     // parent: '.test',

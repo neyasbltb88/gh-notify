@@ -2,106 +2,138 @@ body
     margin: 0
     background-color: #dfdfdf
 
-.log_wrap 
-    position: relative
-    flex-grow: 1
-    flex-basis: 300px
-    font-family: monospace
-    &:before 
-        content: 'Log:'
-        position: absolute
-        left: 10px
-        top: -20px 
-    .log
-        max-width: calc(100vw - 42px)
-        border: 1px solid #333
-        background-color: #888
-        min-height: 17px
-        max-height: 102px
-        margin: 0 10px
-        display: flex
-        flex-direction: column
-        justify-content: flex-start
-        padding: 1px 2px
-        padding-left: 35px
-        list-style-type: none
-        overflow: auto
-        &::-webkit-scrollbar 
-            width: .55%
-            min-width: 8px
-            height: 8px
-            background-color: #888
-        &::-webkit-scrollbar-thumb 
-            background-color: #E6DB74
-        &::-webkit-scrollbar-track 
-            background-color: #888
-        li 
-            min-width: 450px
-            min-height: 15px
-            line-height: 15px
-            margin: 1px 0;
-            padding: 0 3px 0 10px
-            background-color: #bbb
-            display: flex
-            align-items: center
-            position: relative
-            &:before 
-                position: absolute
-                content: attr(data-log-line)
-                color: #66D9EF
-                right: 100%
-                font-size: 11px
-            &:after 
-                position: absolute
-                content: attr(data-log-way)
-                left: 0
-                top: -1px
-                height: 19px
-                width: 9px
-                background-color: #888
-            &:not([data-log-line]) 
-                margin-top: -1px
-                min-height: 16px
-                padding-bottom: 1px
-            &.way_to:after 
-                color: #8AE22E
-            &.way_from:after 
-                color: #FD971F
-
-
 .demo_page_wrap
     width: 100vw
     height: 100vh
-    overflow: hidden
+    min-height: 330px
     display: flex
     justify-content: center
     align-items: center
     .demo_page
-        max-width: 800px
-        flex-basis: 800px
+        max-width: 1200px
+        // max-width: 80vw
+        // width: 80vw
+        flex-basis: 1200px
         height: 60vh
-        border: 1px solid #000
+        min-height: 320px
+        border: 1px solid #dbedff
+        box-shadow: 0px 0px 16px -2px rgba(3,47,98,0.4);
         border-radius: 5px
         display: flex
         flex-direction: column
         justify-content: stretch
         .row_1, .row_3
             min-height: 25px
+            background-color: #dbedff
             display: flex
             align-items: center
             justify-content: space-between
         .row_2
             flex-grow: 1
-            border: 1px solid #00f
+            display: flex
+            flex-wrap: wrap
+            height: 100%
             overflow: auto
-            .row_2_inner
-              height: 1000px
-              border: 1px solid #f00
+            &::-webkit-scrollbar 
+                width: .55%
+                min-width: 8px
+                height: 8px
+                background-color: #dbedff
+            &::-webkit-scrollbar-thumb 
+                background-color: #032f62
+            &::-webkit-scrollbar-track 
+                background-color: #dbedff
         .row
-            // border: 1px solid #00f
             label
                 padding: 3px 15px
                 cursor: pointer
-                
+
+.demo_page            
+    .row_2
+        .container_settings_wrap,
+        .push_settings_wrap
+            flex-grow: 1
+            width: 100%
+            flex-basis: 450px
+            .header
+              display: flex
+              justify-content: center
+              height: 20px
+              background-color: #032f62
+              color: #dbedff
+              padding: 5px 0
+            .settings_wrap
+              overflow: auto
+              height: calc(100% - 30px)
+              &::-webkit-scrollbar 
+                  width: .55%
+                  min-width: 8px
+                  height: 8px
+                  background-color: #dbedff
+              &::-webkit-scrollbar-thumb 
+                  background-color: #032f62
+              &::-webkit-scrollbar-track 
+                  background-color: #dbedff
+              .settings
+                  min-height: 700px
 
 
+.demo_page 
+    .settings
+        margin: 0
+        padding: 0
+        list-style-type: none
+        li:nth-child(odd)
+            background-color: #fffbdd
+            .description
+                &:after
+                    border-color: transparent transparent #fffbdd transparent;
+        li
+            padding: 10px
+            &.disabled
+                .prop_name,
+                .prop_val
+                    user-select: none
+                    opacity: .5
+            .params
+                display: flex
+
+.demo_page 
+    .settings
+        .prop_name
+            min-width: 150px
+            display: inline-block
+        .prop_val
+            outline: 1px solid #dbedff
+            flex-grow: 1
+            padding: 0 10px
+            &:focus
+                outline: 1px solid #165c26
+        .description
+            margin: 15px 10px 5px
+            padding: 10px
+            border: 1px solid #000
+            border-radius: 5px
+            position: relative
+            &:before
+                content: ''
+                display: block
+                position: absolute
+                left: 15px
+                top: -10px
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 10px 10px 10px;
+                border-color: transparent transparent #000 transparent;
+            &:after
+                content: ''
+                display: block
+                position: absolute
+                left: 15px
+                top: -9px
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 10px 10px 10px;
+                border-color: transparent transparent #dfdfdf transparent;
